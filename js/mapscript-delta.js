@@ -75,6 +75,7 @@
 		/*var gter = new OpenLayers.Layer.Google("Google Terrain",
 			{type: G_PHYSICAL_MAP, isBaseLayer: false, sphericalMercator: true, numZoomLevels: 20, 	transitionEffect:'resize'});
 		
+
 		
 		//  gter.transitionEffect='resize';
 		
@@ -84,10 +85,15 @@
 	
 		*/
 		
-		var yahoosat = new OpenLayers.Layer.Yahoo("Yahoo Satellite", {'type': YAHOO_MAP_SAT, 'sphericalMercator': true});
+		var gsat = new OpenLayers.Layer.Google("Google Satellite",
+			{type: G_SATELLITE_MAP, isBaseLayer: false, sphericalMercator: true, numZoomLevels: 20, 	transitionEffect:'resize'});
+		
+		// removed 140812 because API shut down
+		/*var yahoosat = new OpenLayers.Layer.Yahoo("Yahoo Satellite", {'type': YAHOO_MAP_SAT, 'sphericalMercator': true});
 		
 		yahoosat.description = "Yahoo satellite map";
 		yahoosat.menu = false;
+		*/
 	
 		/*
 		// YaHOO
@@ -530,7 +536,7 @@
 		 
 		// map.addLayers([acetate,acetateTerrain, yahoosat,yahoo, yahoohyb, osm, gter, acetateLabels, aerial1937Tiles,topos1910Tiles, habitContTiles, habitHistTiles]);   
 		 
-		  map.addLayers([acetateTerrain, yahoosat, habitHistTiles,topos1910Tiles,aerial1937Tiles,  habitContTiles,geoJsonLayer, acetateLabels]);   
+		  map.addLayers([acetateTerrain, gsat, habitHistTiles,topos1910Tiles,aerial1937Tiles,  habitContTiles,geoJsonLayer, acetateLabels]);   
 		  
 		  
 		
@@ -546,7 +552,8 @@
 		acetateLabels.setIsBaseLayer(false);
 		//habitHistTiles.setIsBaseLayer(true);
 		
-		yahoosat.setIsBaseLayer(false);
+		//yahoosat.setIsBaseLayer(false);
+		gsat.setIsBaseLayer(false);
 		 
 		 // END ADD LAYERS
 
