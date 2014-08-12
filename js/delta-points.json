@@ -1,0 +1,739 @@
+{
+"type": "FeatureCollection",
+"features": [
+		{"geometry": { "coordinates":[-122.34495,38.23654], "type": "Point"}, "properties":{
+		"description": "Home Page",
+		"location": "home page location",
+		"url": "home page url",
+		"category": "page",
+		"chapter": true,
+		"viewCenter":[-122.34495,38.23654],
+		"lightboxWidth": 700,
+		"title": "California's Delta As It Was",
+		"date": "date for home page",
+		"layers": [  
+			{"name": "Acetate Terrain", "opacity": 0.8},
+			{"name": "Early 1800s habitats", "opacity": 0.9},
+			{"name": "Acetate Labels", "opacity": 0.6}
+		],
+		"keyLayers": [
+			{"name": "Early 1800s habitats"}
+		],
+		"showZoomControl":false,
+		"allowMovement":true,
+		"imageName1": "black_1.png",
+		"imageName2": "red_2.png",
+		"imageName3": "red_3.png",
+		"prefZoom": 9,
+		"mapCaption": "mapCaption for home page",
+		"selected": "1",
+		"orderNum": "1",
+		"id": "0"}
+	},
+
+		{"geometry": { "coordinates":[-122.59668,38.311491], "type": "Point"}, "properties":{
+		"description": "Description for SFEI",
+		"location": "Location name SFEI",
+		"url": "url for SFEI",
+		"category": "page",
+		"chapter": true,
+		"viewCenter":[-122.59668,38.311491],
+		"lightboxWidth": 950,
+		"title": "Ecological Detectives at Work",
+		"date": "Date for SFEI",
+		"layers": [ 
+			{"name": "Early 1800s habitats", "opacity": 0.8}
+		],
+		"keyLayers": [
+		],
+		"showZoomControl":false,
+		"allowMovement":true,
+		"imageName1": "black_1.png",
+		"imageName2": "red_2.png",
+		"imageName3": "red_3.png",
+		"prefZoom": 3,
+		"mapCaption": "mapCaption for SFEI",
+		"selected": "1",
+		"orderNum": "2",
+		"id": "1"}
+	},
+	{"geometry": { "coordinates":[-122.59668,38.311491], "type": "Point"}, "properties":{
+		"description": "Map Comparison",
+		"location": "",
+		"url": "url for SFEI",
+		"category": "page",
+		"chapter": false,
+		"viewCenter":[-122.59668,38.311491],
+		"lightboxWidth": 950,
+		"title": "Ecological Detectives at Work",
+		"date": "Date for SFEI",
+		"layers": [ 
+		],
+		"keyLayers": [
+		],
+		"showZoomControl":false,
+		"allowMovement":true,
+		"imageName1": "black_1.png",
+		"imageName2": "red_2.png",
+		"imageName3": "red_3.png",
+		"prefZoom": 3,
+		"caption1": "",
+		"caption2": "",
+		"caption3": "",
+		"mapCaption": "mapCaption for SFEI",
+		"selected": "1",
+		"orderNum": "3",
+		"id": "2"}
+	},
+		{"geometry": { "coordinates":[-122.30530,38.22524], "type": "Point"}, "properties":{
+		"description": "Description for Delta Main Page",
+		"location": "Location name for Delta Main Page",
+		"url": "url for Delta Main Page",
+		"category": "page",
+		"chapter": true,
+		"viewCenter":[-122.30530,38.22524],
+		"lightboxWidth": 340,
+		"title": "Tour the Historical Delta ",
+		"date": "Date for Delta Main Page",
+		"layers": [ 
+			{"name": "Acetate Terrain", "opacity": 0.0},
+			{"name": "Yahoo Satellite", "opacity": 1},
+			{"name": "Early 1800s habitats", "opacity": 0.7},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "Early 1800s habitats"}
+		],
+		"showZoomControl":false,
+		"allowMovement":true,
+		"imageName1": "red_1.png",
+		"imageName2": "red_2.png",
+		"imageName3": "red_3.png",
+		"prefZoom": 9,
+		"mapCaption": "mapCaption for Delta Main Page",
+		"selected": "1",
+		"orderNum": "4",
+		"id": "3"}
+	},
+	{"geometry": { "coordinates":[-121.5692,38.44112], "type": "Point"}, "properties":{
+		"description": "Description for North Delta Main Page",
+		"location": "NORTH DELTA",
+		"url": "url for North Delta Main Page",
+		"category": "region",
+		"chapter": false,
+		"viewCenter":[-121.83701,38.45897],
+		"lightboxWidth": 340,
+		"title": "North Delta Main Page",
+		"date": "Date for North Delta Main Page",
+		"layers": [  
+			{"name": "Acetate Terrain", "opacity": 0.0},
+			{"name": "Yahoo Satellite", "opacity": 1},
+			{"name": "Early 1800s habitats", "opacity": 0.8},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "Early 1800s habitats"}
+		],
+		"showZoomControl":false,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/",
+		"imageName1": "blue_1.png",
+		"imageName2": "blue_2.png",
+		"imageName3": "blue_3.png",
+		"prefZoom": 10,
+		"mapCaption": "mapCaption for North Delta Main Page",
+		"selected": "1",
+		"orderNum": "5",
+		"id": "4"
+	}
+	},
+	{"geometry": { "coordinates":[-121.59008461200, 38.38826397160], "type": "Point"}, "properties":{
+		"description": "Description for Flood Plain Page",
+		"location": "North Delta",
+		"url": "url for Flood Plain Page",
+		"category": "feature",
+		"chapter": false,
+		"viewCenter":[-121.61467,38.38851],
+		"lightboxWidth": 490,
+		"title": "A River&rsquo;s Flood Basin",
+		"date": "Date for Flood Plain Page","layers": [ 
+			{"name": "Acetate Terrain", "opacity": 0.0},
+			{"name": "Yahoo Satellite", "opacity": 1},
+			{"name": "1909-18 USGS topographic maps", "opacity": 1},
+			{"name": "Acetate Labels", "opacity": 0.6},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "1909-18 USGS topographic maps"}
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/6-flood.jpg",
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 13,
+		"mapCaption": "mapCaption for Flood Plain Page",
+		"selected": "1",
+		"orderNum": "6",
+		"id": "5"
+	}
+	},
+	{"geometry": { "coordinates":[-121.53552798200,38.30436573090], "type": "Point"}, "properties":{
+		"description": "Description for Secret Lake Page",
+		"location": "North Delta",
+		"url": "url for Secret Lake Page",
+		"category": "feature",
+		"chapter": false,
+		"viewCenter":[-121.61587,38.31056],
+		"lightboxWidth": 480,
+		"title": "Secret Lake",
+		"date": "Date for Secret Lake Page",
+		"layers": [  
+			{"name": "Acetate Terrain", "opacity": 1},
+			{"name": "Early 1800s habitats", "opacity": 0.8},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "Early 1800s habitats"}
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/7-lake.jpg",
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 12,
+		"caption1": "Photo caption 1 for Secret Lake Page",
+		"caption2": "Photo caption 2 for Secret Lake Page",
+		"caption3": "Photo caption 3 for Secret Lake Page",
+		"mapCaption": "mapCaption for Secret Lake Page",
+		"selected": "1",
+		"orderNum": "7",
+		"id": "6"
+	}
+	},	
+	{"geometry": { "coordinates":[-121.54202737500,38.52333591550], "type": "Point"}, "properties":{
+		"description": "Description for Riverbank Forests Page",
+		"location": "North Delta",
+		"url": "url for Riverbank Forests Page",
+		"category": "feature",
+		"chapter": false,
+		"viewCenter":[-121.75238,38.42152],
+		"lightboxWidth": 640,
+		"title": "Forests along the River",
+		"date": "Date for Riverbank Forests Page",
+		"layers": [  
+			{"name": "Acetate Terrain", "opacity": 1},
+			{"name": "Early 1800s habitats", "opacity": 0.8},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "Early 1800s habitats"}
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/8-forests.jpg",
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 11,
+		"caption1": "Photo caption 1 for Riverbank Forests Page",
+		"caption2": "Photo caption 2 for Riverbank Forests Page",
+		"caption3": "Photo caption 3 for Riverbank Forests Page",
+		"mapCaption": "mapCaption for Riverbank Forests Page",
+		"selected": "1",
+		"orderNum": "8",
+		"id": "7"
+	}
+	},
+{"geometry": { "coordinates":[-121.58143999600,38.33138990270], "type": "Point"}, "properties":{
+		"description": "",
+		"location": "North Delta",
+		"url": "url for for Surveys Page",
+		"category": "feature",
+		"chapter": false,
+		"viewCenter":[-121.60449,38.32954],
+		"lightboxWidth": 500,
+		"title": "Land Surveyors",
+		"date": "Date for Surveys Page",
+		"layers": [  
+			{"name": "Acetate Terrain", "opacity": 0.0},
+			{"name": "1909-18 USGS topographic maps", "opacity": 1},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "1909-18 USGS topographic maps"}
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/9-survey.jpg",
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 14,
+		"caption1": "Photo caption 1 for Surveys Page",
+		"caption2": "Photo caption 2 for Surveys Page",
+		"caption3": "Photo caption 3 for Surveys Page",
+		"mapCaption": "mapCaption for Surveys Page",
+		"selected": "1",
+		"orderNum": "9",
+		"id": "8"
+	}
+	},
+	{"geometry": { "coordinates":[-121.703,38.11879], "type": "Point"}, "properties":{
+		"description": "Description for Central Delta Main Page",
+		"location": "CENTRAL DELTA",
+		"url": "url for Central Delta Main Page",
+		"category": "region",
+		"goordinates": [-121.703,38.11879],
+		"chapter": false,
+		"viewCenter":[-121.84164,38.10559],
+		"lightboxWidth": 340,
+		"title": "The Central Delta: Where Tides Dominate",
+		"date": "Date for Central Delta Main Page",
+		"layers": [  
+			{"name": "Acetate Terrain", "opacity": 0.0},
+			{"name": "Yahoo Satellite", "opacity": 1},
+			{"name": "Early 1800s habitats", "opacity": 0.8},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "Early 1800s habitats"}
+		],
+		"showZoomControl":false,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/",
+		"imageName1": "blue_1.png",
+		"imageName2": "blue_2.png",
+		"imageName3": "blue_3.png",
+		"prefZoom": 10,
+		"caption1": "Photo caption 1 for Central Delta Main Page",
+		"caption2": "Photo caption 2 for Central Delta Main Page",
+		"caption3": "Photo caption 3 for Central Delta Main Page",
+		"mapCaption": "mapCaption for Central Delta Main Page",
+		"selected": "1",
+		"orderNum": "10",
+		"id": "9"
+	}
+	},	
+	{"geometry": { "coordinates":[-121.49226083400,38.03711631720], "type": "Point"}, "properties":{
+		"description": "Description for Winding Sloughs Page",
+		"location": "Central Delta",
+		"url": "url for Winding Sloughs Page",
+		"category": "feature",
+		"chapter": false,
+		"viewCenter":[-121.63547,38.04464],
+		"lightboxWidth": 500,
+		"title": "Winding Sloughs",
+		"date": "Date for Winding Sloughs Page",
+		"layers": [  
+			{"name": "Acetate Terrain", "opacity": 1},
+			{"name": "Early 1800s habitats", "opacity": 0.8},
+			{"name": "Acetate Labels", "opacity": 0.6},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "Early 1800s habitats"}
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/11-channels.jpg",
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 11,
+		"caption1": "Photo caption 1 for Winding Sloughs Page",
+		"caption2": "Photo caption 2 for Winding Sloughs Page",
+		"caption3": "Photo caption 3 for Winding Sloughs Page",
+		"mapCaption": "mapCaption for Winding Sloughs Page",
+		"selected": "1",
+		"orderNum": "11",
+		"id": "10"
+	}
+	},
+	{"geometry": { "coordinates":[-121.51634592100,38.10590967430], "type": "Point"}, "properties":{
+		"description": "Description for Networks of Tidal Channels",
+		"location": "Central Delta ",
+		"url": "url for Networks of Tidal Channels",
+		"category": "feature",
+		"chapter": false,
+		"viewCenter":[-121.71183,38.10798],
+		"lightboxWidth": 500,
+		"title": "Networks of Tidal Channels",
+		"date": "Date for Networks of Tidal Channel ",
+		"layers": [  
+			{"name": "Acetate Terrain", "opacity": 1},
+			{"name": "Early 1800s habitats", "opacity": 0.8},
+			{"name": "Acetate Labels", "opacity": 0.6},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "Early 1800s habitats"}
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/12-tidal.jpg",
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 11,
+		"caption1": "Photo caption 1 for Networks of Tidal Channel ",
+		"caption2": "Photo caption 2 for Networks of Tidal Channel ",
+		"caption3": "Photo caption 3 for Networks of Tidal Channel ",
+		"mapCaption": "mapCaption for Networks of Tidal Channel ",
+		"selected": "1",
+		"orderNum": "12",
+		"id": "11"
+	}
+	},
+	{"geometry": { "coordinates":[-121.55947,38.05791], "type": "Point"}, "properties":{
+		"description": "Description for Tules Mixed with Willow",
+		"location": "Central Delta",
+		"url": "url for Tules Mixed with Willow",
+		"category": "feature",
+		"goordinates": [-121.61543374700,38.07385573150],
+		"chapter": false,
+		"viewCenter":[-121.57904,38.05872],
+		"lightboxWidth": 500,
+		"title": "Tules Mixed with Willow",
+		"date": "Date for Tules Mixed with Willow",
+		"layers": [ 
+			{"name": "Acetate Terrain", "opacity": 0.8},
+			{"name": "1909-18 USGS topographic maps", "opacity": 0.9},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "1909-18 USGS topographic maps"}
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/13-tules.jpg",
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 14,
+		"caption1": "Photo caption 1 for Tules Mixed with Willow",
+		"caption2": "Photo caption 2 for Tules Mixed with Willow",
+		"caption3": "Photo caption 3 for Tules Mixed with Willow",
+		"mapCaption": "mapCaption for Tules Mixed with Willow",
+		"selected": "1",
+		"orderNum": "13",
+		"id": "12"
+	}
+	},	
+	{"geometry": { "coordinates":[-121.81128830100,38.02042058310], "type": "Point"}, "properties":{
+		"description": "Description for Freshwater Meets Saltwater",
+		"location": "Central Delta",
+		"url": "url for Where Freshwater Meets Saltwater",
+		"category": "feature",
+		"chapter": false,
+		"sviewCenter":[-121.81128830100,38.02042058310],
+		"viewCenter":[-121.95892,38.05611],
+		"lightboxWidth": 640,
+		"title": "Where Freshwater Meets Saltwater",
+		"date": "Date for Where Freshwater Meets Saltwater",
+		"layers": [ 
+			{"name": "Acetate Terrain", "opacity": 0.8},
+			{"name": "1909-18 USGS topographic maps", "opacity": 0.8},
+			{"name": "Acetate Labels", "opacity": 0.6},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "1909-18 USGS topographic maps"}
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/14-salinity.jpg",
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 11,
+		"caption1": "Photo caption 1 for Where Freshwater Meets Saltwater",
+		"caption2": "Photo caption 2 for Where Freshwater Meets Saltwater",
+		"caption3": "Photo caption 3 for Where Freshwater Meets Saltwater",
+		"mapCaption": "mapCaption for Where Freshwater Meets Saltwater",
+		"selected": "1",
+		"orderNum": "14",
+		"id": "13"
+	}
+	},
+	{"geometry": { "coordinates":[-121.44619,37.86554], "type": "Point"}, "properties":{
+		"description": "Description for South Delta Main Page",
+		"location": "SOUTH DELTA",
+		"url": "url for South Delta Main Page",
+		"category": "region",
+		"chapter": false,
+		"viewCenter":[-121.71408,37.82162],
+		"lightboxWidth": 340,
+		"title": "South Delta: Where Floodplains Meet the Tides",
+		"date": "Date for South Delta Main Page",
+		"layers": [  
+			{"name": "Acetate Terrain", "opacity": 0.0},
+			{"name": "Yahoo Satellite", "opacity": 1},
+			{"name": "Early 1800s habitats", "opacity": 0.8},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "Early 1800s habitats"}
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/",
+		"imageName1": "blue_1.png",
+		"imageName2": "blue_2.png",
+		"imageName3": "blue_3.png",
+		"prefZoom": 10,
+		"caption1": "Photo caption 1 for South Delta Main Page",
+		"caption2": "Photo caption 2 for South Delta Main Page",
+		"caption3": "Photo caption 3 for South Delta Main Page",
+		"mapCaption": "mapCaption for South Delta Main Page",
+		"selected": "1",
+		"orderNum": "15",
+		"id": "14"
+	}
+	},	
+	{"geometry": { "coordinates":[-121.33660431600,37.78201617970], "type": "Point"}, "properties":{
+		"description": "Description for Complex Floodplain",
+		"location": "South Delta",
+		"url": "url for Complex Floodplain",
+		"category": "feature",
+		"chapter": false,
+		"viewCenter":[-121.37402,37.77917],
+		"lightboxWidth": 520,
+		"title": "Complex Floodplain",
+		"date": "Date for Complex Floodplain",
+		"layers": [  
+			{"name": "Acetate Terrain", "opacity": 1.0},
+			{"name": "1937-39 aerial photography", "opacity": 0.8},
+			{"name": "Acetate Labels", "opacity": 0.6},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "1937-39 aerial photography"}
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/16-floodplain.jpg",
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 13,
+		"caption1": "Photo caption 1 for Complex Floodplain",
+		"caption2": "Photo caption 2 for Complex Floodplain",
+		"caption3": "Photo caption 3 for Complex Floodplain",
+		"mapCaption": "mapCaption for Complex Floodplain",
+		"selected": "1",
+		"orderNum": "16",
+		"id": "15"
+	}
+	},	
+	{"geometry": { "coordinates":[-121.38343629900,37.81211502090], "type": "Point"}, "properties":{
+		"description": "Description for Rafts of Habitat",
+		"location": "South Delta",
+		"url": "url for Rafts of Habitat",
+		"category": "feature",
+		"chapter": false,
+		"viewCenter":[-121.63295,37.82710],
+		"lightboxWidth": 680,
+		"title": "Rafts of Habitat",
+		"date": "Date for Rafts of Habitat",
+		"layers": [ 
+			{"name": "Acetate Terrain", "opacity": 1.0},
+			{"name": "Early 1800s habitats", "opacity": 0.8},
+			{"name": "Acetate Labels", "opacity": 0.6},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "Early 1800s habitats"}
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/17-raft.jpg",
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 11,
+		"caption1": "Photo caption 1 for Rafts of Habitat",
+		"caption2": "Photo caption 2 for Rafts of Habitat",
+		"caption3": "Photo caption 3 for Rafts of Habitat",
+		"mapCaption": "mapCaption for Rafts of Habitat",
+		"selected": "1",
+		"orderNum": "17",
+		"id": "16"
+	}
+	},	
+	{"geometry": { "coordinates":[-121.27559441600,37.74948821710], "type": "Point"}, "properties":{
+		"description": "Description for Walthall Slough",
+		"location": "South Delta",
+		"url": "url for Walthall Slough",
+		"category": "feature",
+		"chapter": false,
+		"viewCenter":[-121.32864,37.72288],
+		"lightboxWidth": 660,
+		"title": "Branching River Channels",
+		"date": "Date for Walthall Slough",
+		"layers": [ 
+			{"name": "Acetate Terrain", "opacity": 0.0},
+			{"name": "1909-18 USGS topographic maps", "opacity": 1},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "1909-18 USGS topographic maps"}
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/18-walthall.jpg",
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 13,
+		"caption1": "Photo caption 1 for Walthall Slough",
+		"caption2": "Photo caption 2 for Walthall Slough",
+		"caption3": "Photo caption 3 for Walthall Slough",
+		"mapCaption": "mapCaption for Walthall Slough",
+		"selected": "1",
+		"orderNum": "18",
+		"id": "17"
+	}
+	},	
+
+
+	{"geometry": { "coordinates":[-121.51724918800,38.24002467380], "type": "Point"}, "properties":{
+		"description": "Description for Native Peoples",
+		"location": "Around the Delta",
+		"url": "url for Native Peoples",
+		"category": "feature",
+		"chapter": false,
+		"viewCenter":[-121.51724918800,38.24002467380],
+		"lightboxWidth": 950,
+		"title": "Native Peoples",
+		"date": "Date for Native Peoples",
+		"layers": [ 
+			{"name": "Acetate Terrain", "opacity": 1.0},
+			{"name": "Early 1800s habitats", "opacity": 0.8},
+			{"name": "Acetate Labels", "opacity": 0.6},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/19-native.jpg",
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 11,
+		"caption1": "Photo caption 1 for Native Peoples",
+		"caption2": "Photo caption 2 for Native Peoples",
+		"caption3": "Photo caption 3 for Native Peoples",
+		"mapCaption": "mapCaption for Native Peoples",
+		"selected": "1",
+		"orderNum": "19",
+		"id": "18"
+	}
+	},	
+
+	{"geometry": { "coordinates":[-121.45416577700,37.92412814770], "type": "Point"}, "properties":{
+		"description": "Description for Reclaiming Wetlands",
+		"location": "Around the Delta",
+		"url": "url for Reclaiming Wetlands",
+		"category": "feature",
+		"chapter": false,
+		"viewCenter":[-121.63132,37.93604],
+		"lightboxWidth": 520,
+		"title": "Reclaiming Wetlands",
+		"date": "Date for Reclaiming Wetlands",
+		"layers": [ 
+			{"name": "Acetate Terrain", "opacity": 1.0},
+			{"name": "Early 2000s habitats", "opacity": 0.8},
+			{"name": "Acetate Labels", "opacity": 0.6},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "Early 2000s habitats"}
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/20-reclaim.jpg",
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 11,
+		"caption1": "Photo caption 1 for Reclaiming Wetlands",
+		"caption2": "Photo caption 2 for Reclaiming Wetlands",
+		"caption3": "Photo caption 3 for Reclaiming Wetlands",
+		"mapCaption": "mapCaption for Reclaiming Wetlands",
+		"selected": "1",
+		"orderNum": "20",
+		"id": "19"
+	}
+	},	
+
+	{"geometry": { "coordinates":[-121.67823151000,38.16362760130], "type": "Point"}, "properties":{
+		"description": "Description for A River of Salmon",
+		"location": "Around the Delta",
+		"url": "url for A River of Salmon",
+		"category": "feature",
+		"chapter": false,
+		"viewCenter":[-121.74972,38.16663],
+		"lightboxWidth": 520,
+		"title": "A River of Salmon",
+		"date": "Date for A River of Salmon",
+		"layers": [ 
+			{"name": "Acetate Terrain", "opacity": 0.8},
+			{"name": "1909-18 USGS topographic maps", "opacity": 1},
+			{"name": "Points of Interest", "opacity": 1}
+		],
+		"keyLayers": [
+			{"name": "1909-18 USGS topographic maps"}
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"thumbnailImage":"images/thumbnails/21-salmon.jpg",
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 12,
+		"caption1": "Photo caption 1 for A River of Salmon",
+		"caption2": "Photo caption 2 for A River of Salmon",
+		"caption3": "Photo caption 3 for A River of Salmon",
+		"mapCaption": "mapCaption for A River of Salmon",
+		"selected": "1",
+		"orderNum": "21",
+		"id": "20"
+	}
+	},	
+
+
+	{"geometry": { "coordinates":[-122.11166,38.20086], "type": "Point"}, "properties":{
+		"description": "Description for Explore the Maps",
+		"location": "",
+		"url": "url for Explore the Maps",
+		"category": "page",
+		"chapter": true,
+		"viewCenter":[-121.84530,38.14796],
+		"lightboxWidth": 365,
+		"title": "Explore the Maps",
+		"date": "Date for Explore the Maps",
+		"layers": [ 
+			{"name": "Acetate Terrain", "opacity": 0.0},
+			{"name": "Yahoo Satellite", "opacity": 0.8},
+			{"name": "1937-39 aerial photography", "opacity": 0.8}
+		],
+		"keyLayers": [
+		],
+		"showZoomControl":true,
+		"allowMovement":true,
+		"imageName1": "yellow_1.png",
+		"imageName2": "yellow_2.png",
+		"imageName3": "yellow_3.png",
+		"prefZoom": 10,
+		"selected": "1",
+		"orderNum": "22",
+		"id": "21"
+	}
+	}
+]
+}
+	
