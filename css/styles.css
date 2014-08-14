@@ -1,3 +1,10 @@
+.olLayerGooglePoweredBy {
+    left: 2px;
+    bottom: 15px;   
+    background:none !important;
+    width:200px;
+}
+
 .mainTitle {
 		font-size: 46px;	
 		line-height: 50px;
@@ -361,6 +368,7 @@ a.active {
 
 
 .mapContainer {
+	width:946px;
 	margin-top:0px;
 	padding-top:0px;
 	//overflow:hidden;

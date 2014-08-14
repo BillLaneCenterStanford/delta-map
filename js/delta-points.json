@@ -97,7 +97,7 @@
 		"date": "Date for Delta Main Page",
 		"layers": [ 
 			{"name": "Acetate Terrain", "opacity": 0.0},
-			{"name": "Google Satellite", "opacity": 1},
+			{"name": "Google Satellite", "opacity": 0.8},
 			{"name": "Early 1800s habitats", "opacity": 0.7},
 			{"name": "Points of Interest", "opacity": 1}
 		],
@@ -127,7 +127,7 @@
 		"date": "Date for North Delta Main Page",
 		"layers": [  
 			{"name": "Acetate Terrain", "opacity": 0.0},
-			{"name": "Google Satellite", "opacity": 1},
+			{"name": "Google Satellite", "opacity": 0.8},
 			{"name": "Early 1800s habitats", "opacity": 0.8},
 			{"name": "Points of Interest", "opacity": 1}
 		],
@@ -158,7 +158,7 @@
 		"title": "A River&rsquo;s Flood Basin",
 		"date": "Date for Flood Plain Page","layers": [ 
 			{"name": "Acetate Terrain", "opacity": 0.0},
-			{"name": "Google Satellite", "opacity": 1},
+			{"name": "Google Satellite", "opacity": 0.8},
 			{"name": "1909-18 USGS topographic maps", "opacity": 1},
 			{"name": "Acetate Labels", "opacity": 0.6},
 			{"name": "Points of Interest", "opacity": 1}
@@ -470,7 +470,7 @@
 		"date": "Date for South Delta Main Page",
 		"layers": [  
 			{"name": "Acetate Terrain", "opacity": 0.0},
-			{"name": "Google Satellite", "opacity": 1},
+			{"name": "Google Satellite", "opacity": 0.8},
 			{"name": "Early 1800s habitats", "opacity": 0.8},
 			{"name": "Points of Interest", "opacity": 1}
 		],
@@ -718,7 +718,7 @@
 		"date": "Date for Explore the Maps",
 		"layers": [ 
 			{"name": "Acetate Terrain", "opacity": 0.0},
-			{"name": "Google Satellite", "opacity": 0.8},
+			{"name": "Google Satellite", "opacity": 1},
 			{"name": "1937-39 aerial photography", "opacity": 0.8}
 		],
 		"keyLayers": [

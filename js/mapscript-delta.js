@@ -85,8 +85,17 @@
 	
 		*/
 		
-		var gsat = new OpenLayers.Layer.Google("Google Satellite",
-			{type: G_SATELLITE_MAP, isBaseLayer: false, sphericalMercator: true, numZoomLevels: 20, 	transitionEffect:'resize'});
+		var gsat = 
+		
+		/*new OpenLayers.Layer.Google("Google Satellite",
+			{type: G_SATELLITE_MAP, isBaseLayer: false, sphericalMercator: true, numZoomLevels: 20, 	transitionEffect:'resize'});*/
+		
+		  new OpenLayers.Layer.Google(
+                "Google Satellite",
+                {type: google.maps.MapTypeId.SATELLITE, numZoomLevels: 22}
+            );
+		
+		
 		
 		// removed 140812 because API shut down
 		/*var yahoosat = new OpenLayers.Layer.Yahoo("Yahoo Satellite", {'type': YAHOO_MAP_SAT, 'sphericalMercator': true});
@@ -384,6 +393,10 @@
 				createNav();
 				
 				createLayerNav();
+				
+				
+			gsat.setOpacity(0.8); 		 // added for readability
+
 						
 				//selectFeature(1,6);
 				
