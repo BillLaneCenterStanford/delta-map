@@ -3,6 +3,8 @@
 	var colors = new Array("black","red","blue","yellow");
 	
 	var map;
+	
+	var gsat;
 			
 	//var mapBounds = new OpenLayers.Bounds( -115.684814304, 34.7053207445, -108.296682969, 37.1025134863);// generated for ives
 	
@@ -85,15 +87,23 @@
 	
 		*/
 		
-		var gsat = 
-		
-		/*new OpenLayers.Layer.Google("Google Satellite",
+		/* v2 */
+		/*var gsat =  new OpenLayers.Layer.Google("Google Satellite",
 			{type: G_SATELLITE_MAP, isBaseLayer: false, sphericalMercator: true, numZoomLevels: 20, 	transitionEffect:'resize'});*/
-		
-		  new OpenLayers.Layer.Google(
+			
+		// v3	
+		// https://developers.google.com/maps/documentation/javascript/v2tov3
+		// http://dev.openlayers.org/examples/google.html
+		var gsat =  new OpenLayers.Layer.Google(
                 "Google Satellite",
-                {type: google.maps.MapTypeId.SATELLITE, numZoomLevels: 22}
-            );
+                {type: google.maps.MapTypeId.SATELLITE, sphericalMercator: true, numZoomLevels: 22}
+            )	
+			
+		
+		  // new OpenLayers.Layer.Google(
+//                 "Google Satellite",
+//                 {type: google.maps.MapTypeId.SATELLITE, numZoomLevels: 22}
+//             );
 		
 		
 		
@@ -118,9 +128,9 @@
 		
 		// create OSM/OAM layer
 /*		var osm = new OpenLayers.Layer.TMS( "OpenStreetMap",
-			"http://tile.openstreetmap.org/",
+			"//tile.openstreetmap.org/",
 			{ type: 'png', getURL: osm_getTileURL, displayOutsideMaxExtent: true, 
-			  attribution: '<a href="http://www.openstreetmap.org/">OpenStreetMap</a>'} );
+			  attribution: '<a href="//www.openstreetmap.org/">OpenStreetMap</a>'} );
 */			  
 			  
 	
@@ -178,18 +188,28 @@
 		topos1910Tiles.menu = true;
 		topos1910Tiles.thumbnail = "layer_thumb_topos.gif";
 		
+		
+		// temp disable 160808
+		/*
 		// Create Acetate tile layer
 		acetate = new OpenLayers.Layer.OSM("Acetate","http://acetate.geoiq.com/tiles/acetate-bg/${z}/${x}/${y}.png");
 	
 		
 		// Create Acetate tile layer
-		acetateLabels = new OpenLayers.Layer.OSM("Acetate Labels","http://acetate.geoiq.com/tiles/acetate-labels/${z}/${x}/${y}.png");
+		acetateLabels = new OpenLayers.Layer.OSM("Acetate Labels","//acetate.geoiq.com/tiles/acetate-labels/${z}/${x}/${y}.png");
 		acetateLabels.description = "";
 		acetateLabels.menu = false;
 		
 		
 		// Create Acetate tile layer
-		acetateTerrain = new OpenLayers.Layer.OSM("Acetate Terrain","http://acetate.geoiq.com/tiles/terrain/${z}/${x}/${y}.png");
+		acetateTerrain = new OpenLayers.Layer.OSM("Acetate Terrain","//acetate.geoiq.com/tiles/terrain/${z}/${x}/${y}.png");
+		
+		acetateTerrain.description = "";
+		acetateTerrain.menu = false;
+		*/
+		
+		// Create Acetate tile layer
+		acetateTerrain = new OpenLayers.Layer.OSM("Acetate Terrain","//stamen-tiles-{s}a.ssl.fastly.net/toner-background/{z}/{x}/{y}.{ext}toner-background/{z}/{x}/{y}.{ext}");
 		
 		acetateTerrain.description = "";
 		acetateTerrain.menu = false;
@@ -394,8 +414,8 @@
 				
 				createLayerNav();
 				
-				
-			gsat.setOpacity(0.8); 		 // added for readability
+			// temp disable 160808	
+			//gsat.setOpacity(0.8); 		 // added for readability
 
 						
 				//selectFeature(1,6);
@@ -548,10 +568,13 @@
 		 
 		 
 		// map.addLayers([acetate,acetateTerrain, yahoosat,yahoo, yahoohyb, osm, gter, acetateLabels, aerial1937Tiles,topos1910Tiles, habitContTiles, habitHistTiles]);   
-		 
-		  map.addLayers([acetateTerrain, gsat, habitHistTiles,topos1910Tiles,aerial1937Tiles,  habitContTiles,geoJsonLayer, acetateLabels]);   
-		  
-		  
+		 // temp disable 160808
+		  //map.addLayers([acetateTerrain, gsat, habitHistTiles,topos1910Tiles,aerial1937Tiles,  habitContTiles,geoJsonLayer, acetateLabels]);   
+		  // testing acetate substitute 171207
+		//map.addLayers([acetateTerrain,habitHistTiles,topos1910Tiles,aerial1937Tiles,  habitContTiles,geoJsonLayer]); 
+		
+		// testing acetate substitute 171207 and adding gsat back
+		map.addLayers([gsat,habitHistTiles,topos1910Tiles,aerial1937Tiles,  habitContTiles,geoJsonLayer]); 
 		
 		
 		 // just testing!
@@ -561,12 +584,13 @@
 			//yahoosat.setOpacity(0);
 		}
 		
-		acetate.setIsBaseLayer(true);
-		acetateLabels.setIsBaseLayer(false);
+		/*acetate.setIsBaseLayer(true);
+		acetateLabels.setIsBaseLayer(false);*/
 		//habitHistTiles.setIsBaseLayer(true);
 		
+		// temp disable 160808
 		//yahoosat.setIsBaseLayer(false);
-		gsat.setIsBaseLayer(false);
+		//gsat.setIsBaseLayer(false);
 		 
 		 // END ADD LAYERS
 
@@ -604,8 +628,9 @@
 	 	// stock layer switcher control
 		var switcherControl = new OpenLayers.Control.LayerSwitcher();
 		
+		// temp disable 160808
 		// stock inset map control
-		var overviewControl = new OpenLayers.Control.OverviewMap({
+		/*var overviewControl = new OpenLayers.Control.OverviewMap({
 			size: new OpenLayers.Size(150,150),
 			//layers: OpenLayers.Layer('osm')//,layers: ['osm','aerial1937Tiles']
 			layers: [acetateLabels],//,layers: ['osm','aerial1937Tiles'],
@@ -617,7 +642,7 @@
 			autoPan: true,
 			minRatio: 3,
 			maxRatio: 6
-		})
+		})*/
 		
 		
 		 // from gis.ibbeck.de/ginfo/apps/OLExamples/OL26/examples/select-feature-with-function.html   
@@ -930,8 +955,9 @@
 		//soloLayer(0); // hides all layers
 		
 			habitContTiles.setVisibility(false);
-			acetateLabels.setOpacity(0.6);
-			acetateLabels.setVisibility(true);
+			// temp disable 160808
+			//acetateLabels.setOpacity(0.6);
+			//acetateLabels.setVisibility(true);
 			topos1910Tiles.setVisibility(false);		
 			aerial1937Tiles.setVisibility(false); 
 			geoJsonLayer.setVisibility(false);
@@ -960,7 +986,9 @@ function osm_getTileURL(bounds) {
 	var limit = Math.pow(2, z);
 
 	if (y < 0 || y >= limit) {
-		return "http://www.maptiler.org/img/none.png";
+		// temp disable 160808
+		//return null;//"//www.maptiler.org/img/none.png";
+		return "./images/none.png";
 	} else {
 		x = ((x % limit) + limit) % limit;	              
 	   return this.url + z + "/" + x + "/" + y + "." + this.type;
@@ -1006,7 +1034,11 @@ function overlay_getTileURL_aerials(bounds) {
 	   //// temp // console.log( this.url + z + "/" + x + "/" + y + "." + this.type);
 	   return this.url + "../tiles/delta_aerial_1937_120525_3000dpi/" + z + "/" + x + "/" + y + "." + this.type;
 	} else {
-	   return "http://www.maptiler.org/img/none.png";
+	  
+		// temp disable 160808
+		//return null;// return "./images/none.png";
+		
+		return "./images/none.png";
 	}
 }		 
 
@@ -1027,7 +1059,10 @@ function overlay_getTileURL_topos(bounds) {
 	   //// temp // console.log( this.url + z + "/" + x + "/" + y + "." + this.type);
 	   return this.url + "../tiles/delta_layers_topo_3000dpi_tiles_2/" + z + "/" + x + "/" + y + "." + this.type;
 	} else {
-	   return "http://www.maptiler.org/img/none.png";
+	   
+		// temp disable 160808
+		//return null;//return "./images/none.png";
+		return "./images/none.png";
 	}
 }		
 
@@ -1047,7 +1082,10 @@ function overlay_getTileURL_waterHist(bounds) {
 	   //// temp // console.log( this.url + z + "/" + x + "/" + y + "." + this.type);
 	   return this.url + "../tiles/delta_water_historical_tiles/" + z + "/" + x + "/" + y + "." + this.type;
 	} else {
-	   return "http://www.maptiler.org/img/none.png";
+		// temp disable 160808
+		//return null;//	   return "./images/none.png";
+		
+		return "./images/none.png";
 	}
 	
 }
@@ -1067,7 +1105,10 @@ function overlay_getTileURL_habitHist(bounds) {
 	   //// temp // console.log( this.url + z + "/" + x + "/" + y + "." + this.type);
 	   return this.url + "../tiles/historic_habitats_3000dpi_120513c/" + z + "/" + x + "/" + y + "." + this.type;
 	} else {
-	   return "http://www.maptiler.org/img/none.png";
+		// temp disable 160808
+		//return null;//return "./images/none.png";
+		
+		return "./images/none.png";
 	}
 }		 
 
@@ -1086,7 +1127,10 @@ function overlay_getTileURL_habitCont(bounds) {
 	   //// temp // console.log( this.url + z + "/" + x + "/" + y + "." + this.type);
 	   return this.url + "../tiles/habitats_modern_3000dpi_120524/" + z + "/" + x + "/" + y + "." + this.type;
 	} else {
-	   return "http://www.maptiler.org/img/none.png";
+		// temp disable 160808
+		//return null;//return "./images/none.png";
+		
+		return "./images/none.png";
 	}
 	
 }
@@ -2311,7 +2355,7 @@ function initLightbox(){
 		/**/
 		"<div class='lightbox' style='width:" + geoJsonLayer.features[0].attributes.lightboxWidth +  "px;height:610px;background-repeat:no-repeat; overflow:hidden;background-image:url(images/delta-background-fade.png);background-repeat:repeat-y;'><div class='lightboxContent'><!-- LIGHTBOX BODY--><div class='lightboxBody'><div class='lightbox2Col'><h1 class='mainTitle'>Envisioning <br />California&rsquo;s <br />Delta As it Was</h1><p style='font-size:15px; line-height:19px;'>The Sacramento-San Joaquin Delta is at the heart of California&rsquo;s water supply. This inland delta, where two major rivers converge and mingle with San Francisco Bay tides, has been re-engineered and re-plumbed over the last 160 years to meet the needs of a growing state.</p><p style='font-size:15px; line-height:19px;'>Little is known about the Delta as it once was. Now, as efforts get underway to save the Delta&rsquo;s failing ecosystem, researchers at the San Francisco Estuary Institute are reconstructing this complex landscape using thousands of historical sources.</p><p><a href='javascript:changeItem(1);' class='homeMenu'>Ecological Detectives at Work</a></p><p><a href='javascript:changeItem(3);' class='homeMenu'>Tour the Historical Delta</a></p><p><a href='javascript:changeItem(21);' class='homeMenu'>Explore the Maps</a></p></div></div><!-- END LIGHTBOX BODY--></div>",
 
-		"<!--SFEI--><!--SFEI--><!-- CUT HERE --><div class='lightbox' style='width: 950px; height:610px; overflow:hidden; background:#efefef;'><div class='lightboxContent'><!--LIGHTBOX TITLE--><div class='lightboxTitleArea'><p class='lightboxKicker'>Background</p><h3 class='lightboxHeadline'>Using History to Map a Landscape</h3></div><!-- END LIGHTBOX TITLE--><!-- LIGHTBOX BODY--><div class='lightboxBody'><div class='lightbox3Col'><p class='firstGraf'>Today, California&rsquo;s Delta is virtually unrecognizable compared to what it once was. </p><p>Over 200 years, its landscape has been remade. In the booming decades after the Gold Rush, settlers drained wetlands and put up levees to create new farmland. Later, the Delta became the hub of a vast network of dams and pipelines that supply water to the state. Today, that water reaches more than 25 million residents and millions of acres of Central Valley farmland. </p><p>The legacy of change in the 738,000-acre Delta has come with an environmental cost: its ecosystem is in crisis. Now, California is considering major restoration efforts to reverse the decline of the Delta&rsquo;s endangered species. But little is known about the complex ecosystem that once allowed them to thrive.</p><p>Scientists at the San Francisco Estuary Institute have undertaken an unprecedented effort, funded by the California Department of Fish and Game, to reconstruct this landscape, using a discipline known as &ldquo;historical ecology.&rdquo; They brought together more than 3,000 historical sources from 40 different archives and institutions, including original navigational charts, government land surveys, drawings, photographs, and even journals. </p></div><div class='lightbox3Col'><p><img src='images/sfei-working-285px.png' width='285' height='199' /></p><p class='imageCredit' style='text-align:left;margin-bottom:2px;margin-top:-3px;'>Robin Grossinger and Alison Whipple of the San Francisco Estuary Institute-Aquatic Science Center examine maps in the north Delta. (Photo: Lauren Sommer)</p><p>These materials were created for many purposes, but they all contain clues about what the Delta once looked like.</p><p>By layering together this historical information in space and time, researchers have created a detailed map of the land types, waterways, and plant communities of 200 years ago. The map reveals an interconnected ecosystem of incredible complexity: rich, riverfront forests in the north Delta, lush wetlands and branching channels in the central Delta and a varied, seasonal floodplain in the south Delta.</p><p>&nbsp;</p></div><div class='lightbox3Col' style='float:right;'><p>This map doesn&rsquo;t provide a literal blueprint for remaking the Delta today. But understanding the physical and biological processes that once made the ecosystem flourish could dramatically improve habitat restoration efforts to come. Knowing the landscape as it was could also help reestablish an ecosystem that can adapt as the Delta continues to change.</p><p><em>Read more about the project and habitat restoration in the Delta in KQED&rsquo;s story:</em></p><p class='firstGraf'><a href='http://science.kqed.org/quest/audio/californias-deadlocked-delta-can-we-bring-back-what-weve-lost/' target='_blank'>California's Deadlocked Delta: Can We Bring Back What We've Lost?</a></p><p>&nbsp;</p><p class='chapterHed'>NEXT: <a href='javascript:selectNextItem();'>Compare the Delta Across Eras &raquo;</a><br /></p></div></div><!-- END LIGHTBOX BODY--></div><!-- END LIGHTBOX CONTENT--></div><!-- END LIGHTBOX--><!-- STOP CUT HERE -->",
+		"<!--SFEI--><!--SFEI--><!-- CUT HERE --><div class='lightbox' style='width: 950px; height:610px; overflow:hidden; background:#efefef;'><div class='lightboxContent'><!--LIGHTBOX TITLE--><div class='lightboxTitleArea'><p class='lightboxKicker'>Background</p><h3 class='lightboxHeadline'>Using History to Map a Landscape</h3></div><!-- END LIGHTBOX TITLE--><!-- LIGHTBOX BODY--><div class='lightboxBody'><div class='lightbox3Col'><p class='firstGraf'>Today, California&rsquo;s Delta is virtually unrecognizable compared to what it once was. </p><p>Over 200 years, its landscape has been remade. In the booming decades after the Gold Rush, settlers drained wetlands and put up levees to create new farmland. Later, the Delta became the hub of a vast network of dams and pipelines that supply water to the state. Today, that water reaches more than 25 million residents and millions of acres of Central Valley farmland. </p><p>The legacy of change in the 738,000-acre Delta has come with an environmental cost: its ecosystem is in crisis. Now, California is considering major restoration efforts to reverse the decline of the Delta&rsquo;s endangered species. But little is known about the complex ecosystem that once allowed them to thrive.</p><p>Scientists at the San Francisco Estuary Institute have undertaken an unprecedented effort, funded by the California Department of Fish and Game, to reconstruct this landscape, using a discipline known as &ldquo;historical ecology.&rdquo; They brought together more than 3,000 historical sources from 40 different archives and institutions, including original navigational charts, government land surveys, drawings, photographs, and even journals. </p></div><div class='lightbox3Col'><p><img src='images/sfei-working-285px.png' width='285' height='199' /></p><p class='imageCredit' style='text-align:left;margin-bottom:2px;margin-top:-3px;'>Robin Grossinger and Alison Whipple of the San Francisco Estuary Institute-Aquatic Science Center examine maps in the north Delta. (Photo: Lauren Sommer)</p><p>These materials were created for many purposes, but they all contain clues about what the Delta once looked like.</p><p>By layering together this historical information in space and time, researchers have created a detailed map of the land types, waterways, and plant communities of 200 years ago. The map reveals an interconnected ecosystem of incredible complexity: rich, riverfront forests in the north Delta, lush wetlands and branching channels in the central Delta and a varied, seasonal floodplain in the south Delta.</p><p>&nbsp;</p></div><div class='lightbox3Col' style='float:right;'><p>This map doesn&rsquo;t provide a literal blueprint for remaking the Delta today. But understanding the physical and biological processes that once made the ecosystem flourish could dramatically improve habitat restoration efforts to come. Knowing the landscape as it was could also help reestablish an ecosystem that can adapt as the Delta continues to change.</p><p><em>Read more about the project and habitat restoration in the Delta in KQED&rsquo;s story:</em></p><p class='firstGraf'><a href='//science.kqed.org/quest/audio/californias-deadlocked-delta-can-we-bring-back-what-weve-lost/' target='_blank'>California's Deadlocked Delta: Can We Bring Back What We've Lost?</a></p><p>&nbsp;</p><p class='chapterHed'>NEXT: <a href='javascript:selectNextItem();'>Compare the Delta Across Eras &raquo;</a><br /></p></div></div><!-- END LIGHTBOX BODY--></div><!-- END LIGHTBOX CONTENT--></div><!-- END LIGHTBOX--><!-- STOP CUT HERE -->",
 		
 		
 		"<!--SFEI MAP COMPARISON--><!-- CUT HERE --><div class='lightbox' style='width: 950px; height:660px; background:#fff; overflow:hidden;'><div class='lightboxContent'><br clear='all' /><!-- LIGHTBOX BODY--><div class='lightboxBody'><!--COLUMN 1--><div class='lightbox3Col' style='position:absolute;left:20px;'><div style='background:#333;font-size: 18px; color:#fff; padding:5px;margin-top:10px;float:right;'>Early 1800s</div><div style='position:absolute;left:0px;' id='base_1800'><img src='images/layers/delta_historical_120512_01_all_off2.png' width='285' height='600' /></div><div style='position:absolute;left:0px;' id='slides_1800'><img src='images/layers/delta_historical_120512_01_all.png' width='285' height='600' id='layers_1800' /></div><div style='position:absolute;left:0px;' id='legal_overlay'><img src='images/layers/delta_historical_120512_01_leg.png' width='285' height='600' /></div></div>	<!--COLUMN 2 --><div class='lightbox4Col' style='position:absolute; left: 350px;'><h3 style='margin-top:2px;'>Compare the Delta Across Eras</h3><p class='firstGraf'>Click on the habitat types below to see how the Delta's waterways and landscape have been changed.</p><div id='legendText'></div><!--end legend text div--><p><div class='pullquoteHistoricalSm' style='line-height:13px;'>Note:<br /> The outline on the map at left indicates the mutually mapped area. The outline on the map at right indicates the boundary of the SFEI-ASC study.</p></div></div><!--COLUMN 3--><div class='lightbox3Col' style='position:absolute; left: 620px;'><div style='background:#333;font-size: 18px; color:#fff; padding:5px;margin-top:10px;float:right;'>Early 2000s</div><div style='position:absolute;' id='base_2000'><img src='images/layers/delta_combined_120512_01_mod_all_off2.png' width='300' height='612' /></div><div style='position:absolute;' id='slides_2000'><img src='images/layers/delta_combined_120512_01_mod_all.png' width='300' height='612' id='layers_2000' /></div><div style='position:absolute;' id='outline_1800_div'><img src='images/layers/delta_combined_120512_01_mod_all_outline.png' width='300' height='612' id='outline_1800' /></div></div></div><!-- END LIGHTBOX BODY--></div><script type='script/javascript'>if(getCurrentItem() == 2){initImageSwap();}</script><!-- END LIGHTBOX CONTENT--></div><div style='position:absolute;width:100px;left:660px;color:#666;font-size:10px;font-family:Mako;margin-top:-125px;'>California Department of Fish and Game</div><!-- END LIGHTBOX--><!-- STOP CUT HERE -->",
@@ -2378,11 +2422,11 @@ function initLightbox(){
 		
 		"<!-- CREDITS --><!-- CUT HERE --><div id='lightboxClose' onClick='javascript:changeItem(getCurrentItem());'></div><div class='lightbox' style='width: 950px; height:610px; background-image:url(images/white_90.png); overflow:hidden;'><div class='lightboxContent'><!--LIGHTBOX TITLE--><div class='lightboxTitleArea'><h3 class='lightboxHeadline'>Credits and Acknowledgements</h3></div><!-- END LIGHTBOX TITLE--><!-- LIGHTBOX BODY--><div class='lightboxBody'><div class='lightbox4Col'><p class='lightboxTextOverview'>Questions or comments?<br />Email <a href='mailto:westcenter@stanford.edu'>westcenter@stanford.edu</a></p><p class='lightboxTextOverview' ><strong>For More Information</strong><br />Read more <a href='javascript:showLightbox(23);'>about the historical ecology research project on which this report is based</a>.	</p><p class='lightboxTextOverview'><br /></p><p class='lightboxReturnPrompt' style='text-align: right'><a href='javascript:changeItem(getCurrentItem());'>&laquo; Return to the Map</a></p></div>	<div style='float:left; margin-right:10px;'><img src='images/clearpixel.png' width='50' height='300' border='0' /></div>		<div class='lightbox2Col'><h2></h2><p class='chapterHed'>Written and designed by</p><p class='firstGraf'>Lauren Sommer, KQED<br />Alison Whipple, SFEI-ASC<br />Geoff McGhee, Bill Lane Center for the American West, Stanford University</p><p></p><p class='chapterHed'>KQED QUEST</p><p>Lauren Sommer<br />Andrea Kissack</p><p class='chapterHed'>The San Francisco Estuary Institute&dash;Aquatic Science Center</p><p>Robin Grossinger<br />Alison Whipple<br /></p><p class='chapterHed'>The Bill Lane Center for the American West, Stanford University</p><p>Jon Christensen<br />Geoff McGhee<br />Maria Santos</p><p>&nbsp;</p><p>&nbsp;</p></div><p class='lightboxReturnPrompt'><a href='javascript:changeItem(getCurrentItem());'></a></p></div></div></div>",/**/
 		
-		"<!--CITATIONS--><!-- CUT HERE --><div id='lightboxClose' onClick='javascript:changeItem(getCurrentItem());'></div><div class='lightbox' style='width: 950px; background-image:url(images/white_90.png); overflow:auto;'><div class='lightboxContent'><!--LIGHTBOX TITLE--><div class='lightboxTitleArea'><p class='lightboxKicker'>About this Project</p><h3 class='lightboxHeadline'>Sources for this Report</h3></div><!-- END LIGHTBOX TITLE--><!-- LIGHTBOX BODY--><div class='lightboxBody'><div class='lightbox4Col'><p class='chapterHed'>Questions or comments?</p><p class='lightboxTextOverview'>Email <a href='mailto:westcenter@stanford.edu'> westcenter@stanford.edu</a></p><p class='chapterHed'>For More Information</p><p class='lightboxTextOverview'>Report from KQED&rsquo;s California Watch: <a href='http://science.kqed.org/quest/audio/californias-deadlocked-delta-can-we-bring-back-what-weve-lost/' target='_blank'> California&rsquo;s Deadlocked Delta: Can We Bring Back What We&rsquo;ve Lost?</a></p><p class='lightboxTextOverview'>View <a href='javascript:showCredits();'> credits &raquo;</a></p><p class='lightboxTextOverview'><br /></p><p class='lightboxReturnPrompt' style='text-align: right'><a href='javascript:changeItem(getCurrentItem());'> &laquo; Return to the Map</a></p></div><div style='float:left; margin-right:10px;'><img src='images/clearpixel.png' width='50' height='300' border='0' /></div><div class='lightbox2Col'><p class='firstGraf'>The draft map and accompanying report featured here are part of the Sacramento-San Joaquin Delta Historical Ecology Study conducted by the San Francisco Estuary Institute-Aquatic Science Center. The map and report are in currently in review and will be available for download in early July on the <a href='http://www.sfei.org/DeltaHEStudy'> SFEI-ASC website</a>. This study was funded by and performed in collaboration with the <a href='http://www.dfg.ca.gov/ERP/'> California Department of Fish and Game, Ecosystem Restoration Program. </a></p><p class='chapterHed'>Report</p><p>Whipple AW, Grossinger RM, Rankin D, Stanford B, Askevold RA, Salomon MN, Striplen CJ, Beller EE. In preparation. <em> Sacramento-San Joaquin Delta Historical Ecology Investigation: Exploring Patterns and Process</em>. Prepared for the California Department of Fish and Game, Ecosystem Restoration Program. A report of SFEI-ASC's Historical Ecology Program, San Francisco Estuary Institute-Aquatic Science Center, Richmond, CA.</p><p class='chapterHed'>Basemaps</p><p>Hickson H, Keeler-Wolf T. 2007. <em> Vegetation and land use classification and map of the Sacramento-San Joaquin River Delta. </em> California Department of Fish and Game.<br /><br />U.S. Geological Survey (USGS). 1909-1918. Topographic Quadrangles, California : 7.5-minute series 1:31,680.<br /><br />U.S. Department of Agriculture (USDA), Western Division Laboratory. 1937-9. [Aerial photos of Contra Costa, Sacramento, San Joaquin, Solano, and Yolo counties]. Scale: 1:20,000. Agricultural Adjustment Administration (AAA). <em> Courtesy of Peter J. Shields Library, UC Davis and Earth Sciences Library, UC Berkeley. </em><br /></p><br /><p class='chapterHed'>References</p><br /><b> Page 6 </b><br /><br />McCurry Foto Co. 1927. North Sacramento Flood Scenes. <em> Courtesy of California State Library. </em><br /><br />Secretary of War, U.S. Army. 1873. Map of the San Joaquin, Sacramento and Tulare Valleys. <em> Courtesy of David Rumsey Map Collection. </em><br /><br />Unknown. ca. 1900. Yolo Causeway, 81/01/65. <em> Courtesy of Center for Sacramento History. </em><br /><br />Wright W. ca. 1850a. <em> Lost in the tule marshes. Courtesy of California Historical Society. </em><br /><br /><b> Page 7 </b><br /><br />California Department of Water Resources (CDWR). 2008. California DWR LiDAR project.<br /><br />Reece TW. 1864. Map of the Swamp Lands in District No. 2. <em> Courtesy of the California State Lands Commission. </em><br /><br />Unknown. ca. 1925. Duck hunting in the Delta. Myers Collection, 1989/041/0422. <em> Courtesy of Center for Sacramento History. </em><br /><br />Wright W. ca. 1850a. <em> Lost in the tule marshes. Courtesy of California Historical Society. </em><br /><br />Wright W. ca. 1850b. <em> Hunting for market. Courtesy of California Historical Society. </em><br /><br /><b> Page 8 </b><br /><br />Culberg E, Dougal WH. Towers JT. 1852. <em> Mark for entering the second section of the Middle Fork of the Sacramento River, Cadwalader Ringgold. </em> Washington. <em> Courtesy of the David Rumsey Map Collection. </em><br /><br />Lewis WJ. U.S. Department of the Interior, Bureau of Land Management Rectangular Survey, California, 1859b. <em> Field notes of N.E.&amp;W. Boundary lines of Township 6 North Range 4 East Mount Diablo Meridian, California. 66-12. Courtesy of Bureau of Land Management. </em><br /><br />United States Geological Survey (USGS). 1905. W. R. McKean in tules ’05. Hubert F. Rogers Collection. 2006/028/115. <em> Courtesy of Center for Sacramento History. </em><br /><br /><b> Page 11 </b><br /><br />Hutchings JM. 1862. <em> Scenes of wonder and curiosity in California. </em> San Francisco, CA: Hutchings &amp; Rosenfield.<br /><br /><em> The Morning Call. </em> 1894. Caused by 'cuts'. September 19. <em> Courtesy of California Digital Newspaper Collection. </em><br /><br />Unknown. 1930. Dredging in Tinsley, Fern, Headreach and Tule Islands. <em> Courtesy of Bank of Stockton Historical Photographic Collection. </em><br /><br /><b> Page 12 </b><br /><br />Unknown. ca. 1900. Dyer Photograph Collection, MS 229. <em> Courtesy of Holt-Atherton Special Collections, University of Pacific Library. </em><br /><br />U.S. Department of Agriculture (USDA), Western Division Laboratory. 1937-9. [Aerial photos of Contra Costa, Sacramento, San Joaquin, Solano, and Yolo counties]. Scale: 1:20,000. Agricultural Adjustment Administration (AAA). <em> Courtesy of Peter J. Shields Library, UC Davis and Earth Sciences and Map Library, UC Berkeley. </em><br /><br />Wheeler AS. 1920. Map of the Liberty Reclamation District. <em> Courtesy of Solano County Surveyors Office. </em><br /><br /><b> Page 13 </b><br /><br />Gibbes CD. W.B. Cooke &amp; Co. 1850a. Map of San Joaquin River. San Francisco, CA. <em> Courtesy of Peter J. Shields Library Map Collection, UC Davis. </em><br /><br />Pacific Rural Press. 1871. Inspection of the tule lands. November 4. <em> Courtesy of California Digital Newspaper Collection. </em><br /><br />View of Island Land Before Reclamation. ca. 1900. Ralph Yardley Collection, LB67-712-41. <em> Courtesy of the Haggin Museum. </em><br /><br /><b> Page 14 </b><br /><br />Anza and Brown AK. 1998. <em> The Anza Expedition in eastern Contra Costa and eastern Alameda Counties, California. </em> Anza Trail Team, Western Region, National Park Service.<br /><br />Belcher E, Simpkinson FG, Pierce RA, et al. 1979. H.M.S. Sulphur on the Northwest and California coasts, 1837 and 1839 : the accounts of captain Edward Belcher and midshipman Francis Guillemard Simpkinson. Kingston, Ontario: Limestone press.<br /><br />Ringgold C. 1850. Chart of Suisun and Vallejo Bays. <em> Courtesy of the David Rumsey Map Collection. </em><br /><br />Taylor KW. 1865. <em> U.S. v. Jonathon Stevenson et al., Land Case No. 364 ND [Los Medanos], U.S. District Court, Northern District. p. 452. Courtesy of the Bancroft Library, UC Berkeley. </em><br /><br /><b> Page 16 </b><br /><br />Mathews. 1901. San Joaquin River and Bridge. <em> Courtesy of California State Library. </em><br /><br />Moerenhout JA. [1849]1935. <em> The inside story of the gold rush. </em> First Person Narratives. <em> San Francisco, CA: California Historical Society. Courtesy.of Library of Congress. </em><br /><br />Unknown. 1938. Flooding at Durham Ferry Road, aerial view. <em> Courtesy of Bank of Stockton Historical Photographic Collection. </em><br /><br /><b> Page 17 </b><br /><br />Gibbes CD. W.B. Cooke &amp; Co. 1850a. Map of San Joaquin River. San Francisco, CA. <em> Courtesy of Peter J. Shields Library Map Collection, UC Davis. </em><br /><br />Gibbes, CD. <em> Stockton Times. </em> 1850b. Navigation on the San Joaquin. June 8.<br /><br />Tucker EE. 1879d. Field notes, Book No. 92. California State Engineering Department. <em> Courtesy of California State Archives. </em><br /><br />U.S. Department of Agriculture (USDA). 2009. [Natural color aerial photos of Contra Costa, Sacramento, San Joaquin, Solano, Yolo counties]. Ground resolution: 1m. National Agriculture Imagery Program (NAIP). Washington, DC.<br /><br />U.S. Geological Survey (USGS). 1909-1918. Topographic Quadrangles, California: 7.5-minute series 1:31,680.<br /><br /><b> Page 18 </b><br /><br />Hall WH. California Department of Engineering. 1887. Topographical and irrigation map of the Great Central Valley of California. Sacramento, CA. <em> Courtesy of Peter J. Shields Library Map Collection, UC Davis. </em><br /><br />Unknown. 1915. San Joaquin, the gateway county of California. <em> Courtesy of Earth Sciences &amp; Map Library, UC Berkeley. </em><br /><br />U.S. Department of Agriculture (USDA). 2009. [Natural color aerial photos of Contra Costa, Sacramento, San Joaquin, Solano, Yolo counties]. Ground resolution: 1m. National Agriculture Imagery Program (NAIP). Washington, DC.<br /><br /><b> Page 19 </b><br /><br />Duran N. 1824. Plano topogr&aacute;fico de la mision de San Jos&eacute;. <em> Courtesy of The Bancroft Library, UC Berkeley. </em><br /><br /><b> Page 20 </b><br /><br />Peatfield JJ. 1894. Dredging on the Pacific Coast. Overland monthly and Out West magazine. 24(141):315-327. <em> Courtesy of Making of America Journal Articles. </em><br /><br />Unknown ca. 1910. McCurry Foto Co. <em> Courtesy of the California State Library. </em><br /><br />Unknown. 1916. Tule. D-118, Box 7, 8:2. <em> Courtesy of UC Davis Special Collections. </em><br /><br /><b> Page 21 </b><br /><br />Bryant E. 1848. <em> What I saw in California: being the journal or a tour; by the emigrant route and south pass of the Rocky Mountains, across the continent of North America, the Great Desert basin, and through California, in the years 1846, 1847. </em> 2nd edition. New York, NY: D. Appleton &amp; Company; Philadelphia, PA: George S. Appleton.<br /><br />Hutchings JM. 1862. <em> Scenes of wonder and curiosity in California.</em>San Francisco, CA: Hutchings &amp; Rosenfield.<br /><br /><br /></div></div><!-- END LIGHTBOX BODY--></div><!-- END LIGHTBOX CONTENT--></div><!-- END LIGHTBOX--><!-- STOP CUT HERE -->",
+		"<!--CITATIONS--><!-- CUT HERE --><div id='lightboxClose' onClick='javascript:changeItem(getCurrentItem());'></div><div class='lightbox' style='width: 950px; background-image:url(images/white_90.png); overflow:auto;'><div class='lightboxContent'><!--LIGHTBOX TITLE--><div class='lightboxTitleArea'><p class='lightboxKicker'>About this Project</p><h3 class='lightboxHeadline'>Sources for this Report</h3></div><!-- END LIGHTBOX TITLE--><!-- LIGHTBOX BODY--><div class='lightboxBody'><div class='lightbox4Col'><p class='chapterHed'>Questions or comments?</p><p class='lightboxTextOverview'>Email <a href='mailto:westcenter@stanford.edu'> westcenter@stanford.edu</a></p><p class='chapterHed'>For More Information</p><p class='lightboxTextOverview'>Report from KQED&rsquo;s California Watch: <a href='//science.kqed.org/quest/audio/californias-deadlocked-delta-can-we-bring-back-what-weve-lost/' target='_blank'> California&rsquo;s Deadlocked Delta: Can We Bring Back What We&rsquo;ve Lost?</a></p><p class='lightboxTextOverview'>View <a href='javascript:showCredits();'> credits &raquo;</a></p><p class='lightboxTextOverview'><br /></p><p class='lightboxReturnPrompt' style='text-align: right'><a href='javascript:changeItem(getCurrentItem());'> &laquo; Return to the Map</a></p></div><div style='float:left; margin-right:10px;'><img src='images/clearpixel.png' width='50' height='300' border='0' /></div><div class='lightbox2Col'><p class='firstGraf'>The draft map and accompanying report featured here are part of the Sacramento-San Joaquin Delta Historical Ecology Study conducted by the San Francisco Estuary Institute-Aquatic Science Center. The map and report are in currently in review and will be available for download in early July on the <a href='//www.sfei.org/DeltaHEStudy'> SFEI-ASC website</a>. This study was funded by and performed in collaboration with the <a href='//www.dfg.ca.gov/ERP/'> California Department of Fish and Game, Ecosystem Restoration Program. </a></p><p class='chapterHed'>Report</p><p>Whipple AW, Grossinger RM, Rankin D, Stanford B, Askevold RA, Salomon MN, Striplen CJ, Beller EE. In preparation. <em> Sacramento-San Joaquin Delta Historical Ecology Investigation: Exploring Patterns and Process</em>. Prepared for the California Department of Fish and Game, Ecosystem Restoration Program. A report of SFEI-ASC's Historical Ecology Program, San Francisco Estuary Institute-Aquatic Science Center, Richmond, CA.</p><p class='chapterHed'>Basemaps</p><p>Hickson H, Keeler-Wolf T. 2007. <em> Vegetation and land use classification and map of the Sacramento-San Joaquin River Delta. </em> California Department of Fish and Game.<br /><br />U.S. Geological Survey (USGS). 1909-1918. Topographic Quadrangles, California : 7.5-minute series 1:31,680.<br /><br />U.S. Department of Agriculture (USDA), Western Division Laboratory. 1937-9. [Aerial photos of Contra Costa, Sacramento, San Joaquin, Solano, and Yolo counties]. Scale: 1:20,000. Agricultural Adjustment Administration (AAA). <em> Courtesy of Peter J. Shields Library, UC Davis and Earth Sciences Library, UC Berkeley. </em><br /></p><br /><p class='chapterHed'>References</p><br /><b> Page 6 </b><br /><br />McCurry Foto Co. 1927. North Sacramento Flood Scenes. <em> Courtesy of California State Library. </em><br /><br />Secretary of War, U.S. Army. 1873. Map of the San Joaquin, Sacramento and Tulare Valleys. <em> Courtesy of David Rumsey Map Collection. </em><br /><br />Unknown. ca. 1900. Yolo Causeway, 81/01/65. <em> Courtesy of Center for Sacramento History. </em><br /><br />Wright W. ca. 1850a. <em> Lost in the tule marshes. Courtesy of California Historical Society. </em><br /><br /><b> Page 7 </b><br /><br />California Department of Water Resources (CDWR). 2008. California DWR LiDAR project.<br /><br />Reece TW. 1864. Map of the Swamp Lands in District No. 2. <em> Courtesy of the California State Lands Commission. </em><br /><br />Unknown. ca. 1925. Duck hunting in the Delta. Myers Collection, 1989/041/0422. <em> Courtesy of Center for Sacramento History. </em><br /><br />Wright W. ca. 1850a. <em> Lost in the tule marshes. Courtesy of California Historical Society. </em><br /><br />Wright W. ca. 1850b. <em> Hunting for market. Courtesy of California Historical Society. </em><br /><br /><b> Page 8 </b><br /><br />Culberg E, Dougal WH. Towers JT. 1852. <em> Mark for entering the second section of the Middle Fork of the Sacramento River, Cadwalader Ringgold. </em> Washington. <em> Courtesy of the David Rumsey Map Collection. </em><br /><br />Lewis WJ. U.S. Department of the Interior, Bureau of Land Management Rectangular Survey, California, 1859b. <em> Field notes of N.E.&amp;W. Boundary lines of Township 6 North Range 4 East Mount Diablo Meridian, California. 66-12. Courtesy of Bureau of Land Management. </em><br /><br />United States Geological Survey (USGS). 1905. W. R. McKean in tules ’05. Hubert F. Rogers Collection. 2006/028/115. <em> Courtesy of Center for Sacramento History. </em><br /><br /><b> Page 11 </b><br /><br />Hutchings JM. 1862. <em> Scenes of wonder and curiosity in California. </em> San Francisco, CA: Hutchings &amp; Rosenfield.<br /><br /><em> The Morning Call. </em> 1894. Caused by 'cuts'. September 19. <em> Courtesy of California Digital Newspaper Collection. </em><br /><br />Unknown. 1930. Dredging in Tinsley, Fern, Headreach and Tule Islands. <em> Courtesy of Bank of Stockton Historical Photographic Collection. </em><br /><br /><b> Page 12 </b><br /><br />Unknown. ca. 1900. Dyer Photograph Collection, MS 229. <em> Courtesy of Holt-Atherton Special Collections, University of Pacific Library. </em><br /><br />U.S. Department of Agriculture (USDA), Western Division Laboratory. 1937-9. [Aerial photos of Contra Costa, Sacramento, San Joaquin, Solano, and Yolo counties]. Scale: 1:20,000. Agricultural Adjustment Administration (AAA). <em> Courtesy of Peter J. Shields Library, UC Davis and Earth Sciences and Map Library, UC Berkeley. </em><br /><br />Wheeler AS. 1920. Map of the Liberty Reclamation District. <em> Courtesy of Solano County Surveyors Office. </em><br /><br /><b> Page 13 </b><br /><br />Gibbes CD. W.B. Cooke &amp; Co. 1850a. Map of San Joaquin River. San Francisco, CA. <em> Courtesy of Peter J. Shields Library Map Collection, UC Davis. </em><br /><br />Pacific Rural Press. 1871. Inspection of the tule lands. November 4. <em> Courtesy of California Digital Newspaper Collection. </em><br /><br />View of Island Land Before Reclamation. ca. 1900. Ralph Yardley Collection, LB67-712-41. <em> Courtesy of the Haggin Museum. </em><br /><br /><b> Page 14 </b><br /><br />Anza and Brown AK. 1998. <em> The Anza Expedition in eastern Contra Costa and eastern Alameda Counties, California. </em> Anza Trail Team, Western Region, National Park Service.<br /><br />Belcher E, Simpkinson FG, Pierce RA, et al. 1979. H.M.S. Sulphur on the Northwest and California coasts, 1837 and 1839 : the accounts of captain Edward Belcher and midshipman Francis Guillemard Simpkinson. Kingston, Ontario: Limestone press.<br /><br />Ringgold C. 1850. Chart of Suisun and Vallejo Bays. <em> Courtesy of the David Rumsey Map Collection. </em><br /><br />Taylor KW. 1865. <em> U.S. v. Jonathon Stevenson et al., Land Case No. 364 ND [Los Medanos], U.S. District Court, Northern District. p. 452. Courtesy of the Bancroft Library, UC Berkeley. </em><br /><br /><b> Page 16 </b><br /><br />Mathews. 1901. San Joaquin River and Bridge. <em> Courtesy of California State Library. </em><br /><br />Moerenhout JA. [1849]1935. <em> The inside story of the gold rush. </em> First Person Narratives. <em> San Francisco, CA: California Historical Society. Courtesy.of Library of Congress. </em><br /><br />Unknown. 1938. Flooding at Durham Ferry Road, aerial view. <em> Courtesy of Bank of Stockton Historical Photographic Collection. </em><br /><br /><b> Page 17 </b><br /><br />Gibbes CD. W.B. Cooke &amp; Co. 1850a. Map of San Joaquin River. San Francisco, CA. <em> Courtesy of Peter J. Shields Library Map Collection, UC Davis. </em><br /><br />Gibbes, CD. <em> Stockton Times. </em> 1850b. Navigation on the San Joaquin. June 8.<br /><br />Tucker EE. 1879d. Field notes, Book No. 92. California State Engineering Department. <em> Courtesy of California State Archives. </em><br /><br />U.S. Department of Agriculture (USDA). 2009. [Natural color aerial photos of Contra Costa, Sacramento, San Joaquin, Solano, Yolo counties]. Ground resolution: 1m. National Agriculture Imagery Program (NAIP). Washington, DC.<br /><br />U.S. Geological Survey (USGS). 1909-1918. Topographic Quadrangles, California: 7.5-minute series 1:31,680.<br /><br /><b> Page 18 </b><br /><br />Hall WH. California Department of Engineering. 1887. Topographical and irrigation map of the Great Central Valley of California. Sacramento, CA. <em> Courtesy of Peter J. Shields Library Map Collection, UC Davis. </em><br /><br />Unknown. 1915. San Joaquin, the gateway county of California. <em> Courtesy of Earth Sciences &amp; Map Library, UC Berkeley. </em><br /><br />U.S. Department of Agriculture (USDA). 2009. [Natural color aerial photos of Contra Costa, Sacramento, San Joaquin, Solano, Yolo counties]. Ground resolution: 1m. National Agriculture Imagery Program (NAIP). Washington, DC.<br /><br /><b> Page 19 </b><br /><br />Duran N. 1824. Plano topogr&aacute;fico de la mision de San Jos&eacute;. <em> Courtesy of The Bancroft Library, UC Berkeley. </em><br /><br /><b> Page 20 </b><br /><br />Peatfield JJ. 1894. Dredging on the Pacific Coast. Overland monthly and Out West magazine. 24(141):315-327. <em> Courtesy of Making of America Journal Articles. </em><br /><br />Unknown ca. 1910. McCurry Foto Co. <em> Courtesy of the California State Library. </em><br /><br />Unknown. 1916. Tule. D-118, Box 7, 8:2. <em> Courtesy of UC Davis Special Collections. </em><br /><br /><b> Page 21 </b><br /><br />Bryant E. 1848. <em> What I saw in California: being the journal or a tour; by the emigrant route and south pass of the Rocky Mountains, across the continent of North America, the Great Desert basin, and through California, in the years 1846, 1847. </em> 2nd edition. New York, NY: D. Appleton &amp; Company; Philadelphia, PA: George S. Appleton.<br /><br />Hutchings JM. 1862. <em> Scenes of wonder and curiosity in California.</em>San Francisco, CA: Hutchings &amp; Rosenfield.<br /><br /><br /></div></div><!-- END LIGHTBOX BODY--></div><!-- END LIGHTBOX CONTENT--></div><!-- END LIGHTBOX--><!-- STOP CUT HERE -->",
 		
 		
 		
-		"<div class='lightboxContainer'><div class='lightboxContainer'><div id='lightboxClose' onClick='javascript:hideLightbox();'></div><div class='lightbox' style='height:400px; padding-top: 150px;'><div class='lightboxContent'><div style='position:absolute;width:500px; height:300px; left: 200px;'><p>Note to the user:</p><p>You are using Microsoft Internet Explorer as your browser. This feature is best viewed with <a href='http://www.google.com/chrome' target='_blank'><strong>Google Chrome</strong></a>, <a href='firefox.com' target='_blank'><strong>Mozilla Firefox</strong></a> or <a href='apple.com/safari' target='_blank'><strong>Apple Safari</strong></a>, which are all available as free downloads.</p></div></div></div></div>"
+		"<div class='lightboxContainer'><div class='lightboxContainer'><div id='lightboxClose' onClick='javascript:hideLightbox();'></div><div class='lightbox' style='height:400px; padding-top: 150px;'><div class='lightboxContent'><div style='position:absolute;width:500px; height:300px; left: 200px;'><p>Note to the user:</p><p>You are using Microsoft Internet Explorer as your browser. This feature is best viewed with <a href='//www.google.com/chrome' target='_blank'><strong>Google Chrome</strong></a>, <a href='firefox.com' target='_blank'><strong>Mozilla Firefox</strong></a> or <a href='apple.com/safari' target='_blank'><strong>Apple Safari</strong></a>, which are all available as free downloads.</p></div></div></div></div>"
 	);
 
 	// SHOWS INTRO PANEL
