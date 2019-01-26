@@ -12,14 +12,14 @@
 		"title": "California's Delta As It Was",
 		"date": "date for home page",
 		"layers": [  
-			{"name": "Acetate Terrain", "opacity": 0.8},
+			{"name": "Google Satellite", "opacity": 0.1},
 			{"name": "Early 1800s habitats", "opacity": 0.9},
 			{"name": "Acetate Labels", "opacity": 0.6}
 		],
 		"keyLayers": [
 			{"name": "Early 1800s habitats"}
 		],
-		"showZoomControl":false,
+		"showZoomControl":true,
 		"allowMovement":true,
 		"imageName1": "black_1.png",
 		"imageName2": "red_2.png",
@@ -224,7 +224,8 @@
 		"title": "Forests along the River",
 		"date": "Date for Riverbank Forests Page",
 		"layers": [  
-			{"name": "Acetate Terrain", "opacity": 1},
+			{"name": "Google Satellite", "opacity": 1},
+			{"name": "Acetate Terrain", "opacity": 0.5},
 			{"name": "Early 1800s habitats", "opacity": 0.8},
 			{"name": "Points of Interest", "opacity": 1}
 		],

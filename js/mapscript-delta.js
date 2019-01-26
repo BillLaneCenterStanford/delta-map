@@ -94,16 +94,36 @@
 		// v3	
 		// https://developers.google.com/maps/documentation/javascript/v2tov3
 		// http://dev.openlayers.org/examples/google.html
-		var gsat =  new OpenLayers.Layer.Google(
+		/*var gsat =  new OpenLayers.Layer.Google(
                 "Google Satellite",
                 {type: google.maps.MapTypeId.SATELLITE, sphericalMercator: true, numZoomLevels: 22}
-            )	
+            )	*/
 			
-		
-		  // new OpenLayers.Layer.Google(
-//                 "Google Satellite",
-//                 {type: google.maps.MapTypeId.SATELLITE, numZoomLevels: 22}
-//             );
+			
+		// subbing out google 190125
+				
+                
+                //var gsat =  new OpenLayers.Layer.OSM("Google Satellite","//tile.stamen.com/toner/{z}/{x}/{y}.{ext}toner-background/{z}/{x}/{y}.{ext}");
+            		
+			 //var gsat = new OpenLayers.Layer.OSM( "Google Satellite");
+			 //var gsat = new OpenLayers.Layer.OSM( "Google Satellite");
+			/*var gsat = new OpenLayers.Layer.Bing({
+				name: "Google Satellite",
+				type: "Aerial",
+				key: "my-api-key-here",
+			});*/
+			var gsat = new OpenLayers.Layer.WMTS({
+    name: "Google Satellite",
+    url: "http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/WMTS/1.0.0/WMTSCapabilities.xml",
+    layer: "World_Imagery",
+    style: "default",
+    matrixSet: "default028mm"//"GoogleMapsCompatible"
+});
+		// temp disable 160808
+		/*var gsat =    new OpenLayers.Layer.Google(
+                "Google Satellite",
+                {type: google.maps.MapTypeId.SATELLITE, numZoomLevels: 22}
+            );*/
 		
 		
 		
@@ -192,7 +212,7 @@
 		// temp disable 160808
 		/*
 		// Create Acetate tile layer
-		acetate = new OpenLayers.Layer.OSM("Acetate","http://acetate.geoiq.com/tiles/acetate-bg/${z}/${x}/${y}.png");
+		acetate = new OpenLayers.Layer.OSM("Acetate","//acetate.geoiq.com/tiles/acetate-bg/${z}/${x}/${y}.png");
 	
 		
 		// Create Acetate tile layer
@@ -209,7 +229,9 @@
 		*/
 		
 		// Create Acetate tile layer
-		acetateTerrain = new OpenLayers.Layer.OSM("Acetate Terrain","//stamen-tiles-{s}a.ssl.fastly.net/toner-background/{z}/{x}/{y}.{ext}toner-background/{z}/{x}/{y}.{ext}");
+		//acetateTerrain = new OpenLayers.Layer.OSM("Acetate Terrain","//stamen-tiles-{s}a.ssl.fastly.net/toner-background/{z}/{x}/{y}.{ext}toner-background/{z}/{x}/{y}.{ext}");
+		
+		acetateTerrain = new OpenLayers.Layer.OSM("Acetate Terrain");
 		
 		acetateTerrain.description = "";
 		acetateTerrain.menu = false;
@@ -220,7 +242,10 @@
 		habitHistTiles = new OpenLayers.Layer.TMS( "Early 1800s habitats", "",
 			{   // url: '', serviceVersion: '.', layername: '.',
 				type: 'png', getURL: overlay_getTileURL_habitHist, alpha: true, 
-				isBaseLayer: false, transitionEffect:'resize'
+				// temp disable 160808
+				//isBaseLayer: false, transitionEffect:'resize'
+				isBaseLayer: false, transitionEffect:'resize' // fixed it 190125
+				
 			});
 		if (OpenLayers.Util.alphaHack() == false) {
 			habitHistTiles.setOpacity(0.8); 
@@ -575,6 +600,7 @@
 		
 		// testing acetate substitute 171207 and adding gsat back
 		map.addLayers([gsat,habitHistTiles,topos1910Tiles,aerial1937Tiles,  habitContTiles,geoJsonLayer]); 
+		//map.addLayers([gsat,acetateTerrain,habitHistTiles,topos1910Tiles,aerial1937Tiles,  habitContTiles,geoJsonLayer]); 
 		
 		
 		 // just testing!
@@ -590,7 +616,8 @@
 		
 		// temp disable 160808
 		//yahoosat.setIsBaseLayer(false);
-		//gsat.setIsBaseLayer(false);
+		//gsat.setIsBaseLayer(false);// this breaks it if bottom layer
+		//gsat.setIsBaseLayer(true);
 		 
 		 // END ADD LAYERS
 
@@ -998,7 +1025,7 @@ function osm_getTileURL(bounds) {
 
 
 
-<!-- TILES FOR OVERLAY BECKWITH-->
+/* <!-- TILES FOR OVERLAY BECKWITH-->*/
 
 /*
 function overlay_getTileURL_Beckwith(bounds) {
@@ -1013,13 +1040,13 @@ function overlay_getTileURL_Beckwith(bounds) {
 	   //// temp // console.log( this.url + z + "/" + x + "/" + y + "." + this.type);
 	   return this.url + "./tiles/beckwith-111202/" +  z + "/" + x + "/" + y + "." + this.type;
 	} else {
-	   return "http://www.maptiler.org/img/none.png";
+	   return "./images/none.png";
 	}
 }	*/	
 
 
 
-<!-- TILES FOR AERIALS 1937-->
+/* <!-- TILES FOR AERIALS 1937-->*/
 
 
 function overlay_getTileURL_aerials(bounds) {
@@ -1045,7 +1072,7 @@ function overlay_getTileURL_aerials(bounds) {
 
 
 
-<!-- TILES FOR TOPOS 1910-->
+/* <!-- TILES FOR TOPOS 1910-->*/
 
 function overlay_getTileURL_topos(bounds) {
 	var res = this.map.getResolution();
@@ -1068,7 +1095,7 @@ function overlay_getTileURL_topos(bounds) {
 
 
 
-<!-- TILES FOR HISTORICAL WATER-->
+/* <!-- TILES FOR HISTORICAL WATER-->*/
 
 function overlay_getTileURL_waterHist(bounds) {
 	var res = this.map.getResolution();
@@ -1091,7 +1118,7 @@ function overlay_getTileURL_waterHist(bounds) {
 }
 
 
-<!-- TILES FOR Early 1800s habitatsS-->
+/* <!-- TILES FOR Early 1800s habitatsS-->*/
 
 function overlay_getTileURL_habitHist(bounds) {
 	var res = this.map.getResolution();
@@ -1113,7 +1140,7 @@ function overlay_getTileURL_habitHist(bounds) {
 }		 
 
 	
-<!-- TILES FOR Early 2000s habitatsS-->
+/* <!-- TILES FOR Early 2000s habitatsS-->*/
 
 function overlay_getTileURL_habitCont(bounds) {
 	var res = this.map.getResolution();
@@ -1165,7 +1192,7 @@ function overlay_getTileURL_habitCont(bounds) {
 		
 		function showLayer(layerNum){
 		
-			//console.log("showLayer running with layerNum at " + layerNum);
+			console.log("showLayer running with layerNum at " + layerNum);
 			map.layers[layerNum].setVisibility(1);
 			map.layers[layerNum].setOpacity(1);
 			
@@ -1178,7 +1205,7 @@ function overlay_getTileURL_habitCont(bounds) {
 				
 		function hideLayer(layerNum){
 		
-			//console.log("hideLayer running with layerNum at " + layerNum);
+			console.log("hideLayer running with layerNum at " + layerNum);
 			map.layers[layerNum].setVisibility(0);
 		
 		
@@ -1192,7 +1219,7 @@ function overlay_getTileURL_habitCont(bounds) {
 		
 		function soloLayer(itemNum){
 		
-			//// temp // console.log("solo layer running with itemNum  at " + itemNum)
+			console.log("solo layer running with itemNum  at " + itemNum)
 			
 			
 			
@@ -1201,10 +1228,12 @@ function overlay_getTileURL_habitCont(bounds) {
 			// hide all layers
 			for(var layerCounter = 0; layerCounter < map.layers.length; layerCounter++){
 			
-				//// temp // console.log("solo layer says map.layers[" + layerCounter + "].name is " + map.layers[layerCounter].name)
+				console.log("solo layer says map.layers[" + layerCounter + "].name is " + map.layers[layerCounter].name)
 			
 			
-				if(map.layers[layerCounter].name != "Acetate Terrain"){
+				//if(map.layers[layerCounter].name != "Acetate Terrain"){
+				// 190125 this fixed disappearing base layer problem
+				if(map.layers[layerCounter].name != "Google Satellite" && map.layers[layerCounter].name != "Acetate Terrain"){
 				
 					
 					/*if(map.layers[layerCounter].name == targetLayer){
@@ -1861,7 +1890,7 @@ function getPrefZoom(idNum){
 }
 
 function changeItem(newItemNum){
-	// temp // console.log("changeItem running with newItemNum at " + newItemNum);
+	 console.log("changeItem running with newItemNum at " + newItemNum);
 		
 		// so map zooms according to needs
 		// maybe trap for page vs. feature?

@@ -233,6 +233,7 @@ a.active {
 	padding: 0px;
 	padding: 5px;
 	margin-bottom:1px;
+	cursor:pointer;
 }
 
 #photoNav #photoNavTitle {
